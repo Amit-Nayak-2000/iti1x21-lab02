@@ -11,17 +11,30 @@ public class DoorLock {
 
     // Constructor.
     public DoorLock( Combination combination ) {
-        // Your code here
+        this.combination = combination;
+        this.open = false;
+        this.activated = true;
+        this.numberOfAttempts = 0;
     }
 
     // Access methods.
 
     public boolean isOpen() {
-        return open;
+        if(this.open == true){
+            return true;
+        }
+        else{
+            return false;
+        }
     }
 
     public boolean isActivated() {
-        return activated;
+        if(this.activated == true){
+            return true;
+        }
+        else{
+            return false;
+        }
     }
 
     // Notice that numberOfAttempts is compared to
@@ -31,13 +44,28 @@ public class DoorLock {
     // these two variables have caused problems for some students.
 
     public boolean open( Combination combination ) {
-
-        // Put your code here, then remove the line below.
-        return true;
+        if(this.activated == true){
+            if(combination == this.combination){
+                this.open = true;
+                this.numberOfAttempts = 0;
+                return true;
+            }
+            else{
+                this.numberOfAttempts += 1;
+            }
+            if(this.numberOfAttempts == MAX_NUMBER_OF_ATTEMPTS){
+                this.activated = false;
+                this.numberOfAttempts = 0;
+                return false;
+            }
+        }
+        return false;
     }
 
     public void activate( Combination c ) {
-        // Put your code here, then remove this comment.
+        if(c == this.combination){
+            this.activated = true;
+        }
     }
 
 }
