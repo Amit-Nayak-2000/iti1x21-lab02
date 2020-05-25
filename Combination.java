@@ -1,9 +1,9 @@
 public class Combination {
 
     // Instance variables.
-    Integer firstValue;
-    Integer secondValue;
-    Integer thirdValue;
+    int firstValue;
+    int secondValue;
+    int thirdValue;
 
     // Constructor
     public Combination( int first, int second, int third ) {
